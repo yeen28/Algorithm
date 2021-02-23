@@ -10,7 +10,7 @@ int dp(std::vector<std::vector<int>> arr, int n){
             else if(j == i)  // 가장 오른쪽에 있는 숫자
                 arr[i][j] += arr[i-1][j-1];
             else   // 왼쪽 위층, 오른쪽 위층의 합 중 더 큰 값
-                arr[i][j] = std::max(arr[i-1][j-1]+arr[i][j], arr[i-1][j]+arr[i][j]);
+                arr[i][j] += std::max(arr[i-1][j-1], arr[i-1][j]);
         }
     }
     sort(arr[n-1].begin(), arr[n-1].end());
