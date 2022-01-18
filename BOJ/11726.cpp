@@ -21,3 +21,30 @@ int main() {
 
     return 0;
 } 
+
+////////////////////////////////////////////////////////
+/*
+#include<iostream>
+using namespace std;
+
+int n;
+int dp[5000];
+
+void input(){
+    cin>>n;
+}
+
+void proc(){
+    dp[0]=1;
+    dp[1]=2;
+    for(int i=2; i<n; i++){
+        dp[i]=(dp[i-1]+dp[i-2])%10007;
+    }
+}
+
+int main(){
+    input();
+    proc();
+    cout<<dp[n-1];
+}
+*/
