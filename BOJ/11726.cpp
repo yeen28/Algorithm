@@ -1,3 +1,4 @@
+// i)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -23,7 +24,7 @@ int main() {
 } 
 
 ////////////////////////////////////////////////////////
-/*
+/* // ii)
 #include<iostream>
 using namespace std;
 
