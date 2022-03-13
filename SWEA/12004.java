@@ -1,45 +1,40 @@
 import java.util.Scanner;
 import java.io.FileInputStream;
 
-import java.util.ArrayList;
-import java.util.List;
-
-class Solution
-{
-	public static void main(String args[]) throws Exception
-	{
+class Solution {
+	public static void main(String args[]) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		int T;
 		T=sc.nextInt();
-
-    List<Integer> arr = new ArrayList<Integer>();
+		
+		StringBuilder sbAnswer = new StringBuilder();
 		for (int test_case = 1; test_case <= T; test_case++) {
 
-			System.out.print("#" + test_case + " ");
+			/////////////////////////////////////////////////////////////////////////////////////////////
 			
-			arr.clear();
-			long in_num = sc.nextLong();
+			sbAnswer.append("#" + test_case + " ");
+			
+			int input_num = sc.nextInt();
 
-			// 약수 얻기
-			for (int i = 1; i <= in_num; i++) {
-				if (in_num % i == 0) {
-					arr.add(i);
+			boolean isTrue = false;
+			
+			int quotient=0, remainder=0;
+			for (int i = 1; i <= 9; i++) {
+				quotient = input_num/i;
+				remainder = input_num%i;
+				
+				if(remainder == 0 && quotient < 10) {
+					isTrue = true;
+					break;
 				}
 			}
 			
-			if (arr.size() % 2 != 0) { //약수의 개수 : 홀수
-				if (arr.get(arr.size() / 2) < 10) {
-					System.out.println("Yes");
-				} else {
-					System.out.println("No");
-				}
-			} else { //약수의 개수 : 짝수
-				if(arr.get(arr.size()/2 - 1) < 10 && arr.get(arr.size()/2) < 10) {
-					System.out.println("Yes");
-				} else {
-					System.out.println("No");
-				}
-			}
+			sbAnswer.append(isTrue ? "Yes\n" : "No\n");
+			
+			
+			/////////////////////////////////////////////////////////////////////////////////////////////
+
 		}
+		System.out.println(sbAnswer);
 	}
 }
