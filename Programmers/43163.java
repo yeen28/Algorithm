@@ -31,16 +31,16 @@ class Solution {
       return;
     }
 
-		for (int i = 0; i < words.length; i++) {
-			if (!visited[i] && is1Diff(words[idx], words[i])) {
-				visited[i] = true;
-				dfs(target, i, cnt+1);
-				visited[i] = false;
-			}
-		}
-
-		return;
+    for (int i = 0; i < words.length; i++) {
+	if (!visited[i] && is1Diff(words[idx], words[i])) {
+		visited[i] = true;
+		dfs(target, i, cnt+1);
+		visited[i] = false;
 	}
+    }
+
+    return;
+  }
   
   public int solution(String begin, String target, String[] words) {
     this.words = words;
@@ -60,7 +60,7 @@ class Solution {
     }
     
     if(answer == MAX) return 0;
-
-		return answer;
-	}
+    
+    return answer;
+  }
 }
