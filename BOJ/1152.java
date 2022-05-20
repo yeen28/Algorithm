@@ -13,17 +13,10 @@ public class Main {
     String str = sc.nextLine();
     proc(str);
   }
-	
+  
   private void proc(String str) {
     StringTokenizer stk = new StringTokenizer(str, " ");
-    int cnt=0;
-    while(true) {
-      if(stk.hasMoreTokens()) {
-        stk.nextToken();
-        cnt++;
-      } else break;
-    } //end while
     
-    System.out.println(cnt);
+    System.out.println(stk.countTokens());
   }
 }
