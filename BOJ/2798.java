@@ -13,15 +13,15 @@ public class Main {
     
     public void input() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer stk1 = new StringTokenizer(br.readLine(), " ");
+        StringTokenizer stk = new StringTokenizer(br.readLine(), " ");
         
-        int N = Integer.parseInt(stk1.nextToken());
-        int M = Integer.parseInt(stk1.nextToken());
+        int N = Integer.parseInt(stk.nextToken());
+        int M = Integer.parseInt(stk.nextToken());
         int[] inArr = new int[N];
         
-        StringTokenizer stk2 = new StringTokenizer(br.readLine(), " ");
+        stk = new StringTokenizer(br.readLine(), " ");
         for(int i=0; i<N; i++){
-            inArr[i] = Integer.parseInt(stk2.nextToken());
+            inArr[i] = Integer.parseInt(stk.nextToken());
         } //end for
         
         proc(N, M, inArr);
