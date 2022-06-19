@@ -45,8 +45,11 @@ public class Main {
 			}
          });
          
+         StringBuilder sb = new StringBuilder();
          for(Coordinate val : coordinate) {
-             System.out.println(val.x + " " + val.y);
+        	 sb.append(val.x).append(" ").append(val.y).append("\n"); 
          }
+         
+         System.out.println(sb);
      }
 }
