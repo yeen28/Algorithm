@@ -1,17 +1,18 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.ArrayList;
 
 public class Main {
-	public static StringBuilder sb = new StringBuilder();
-    public final static int MAX = 0xf7f7f7;
+	public final static int MAX = 0xf7f7f7;
 	public int K, X;
 	public List<Edge>[] listEdge;
-	public int[] arrCost; //비용
+	public int[] arrCost; // 비용
 
 	public class Edge {
 		int v, c;
@@ -20,9 +21,9 @@ public class Main {
 			v = vertex;
 			c = cost;
 		}
-	} //class
+	} // class
 
-	public void proc() {
+	public void proc() throws IOException {
 		PriorityQueue<Integer> pque = new PriorityQueue<Integer>();
 		pque.add(X);
 
@@ -35,7 +36,7 @@ public class Main {
 			for (Edge e : listEdge[vertex]) {
 				if (arrCost[e.v] > e.c + arrCost[vertex]) {
 					arrCost[e.v] = e.c + arrCost[vertex];
-                    pque.add(e.v);
+					pque.add(e.v);
 				}
 			}
 		} // end for i
@@ -44,17 +45,19 @@ public class Main {
 	} // proc
 
 	/* 정답 찾기 */
-	public void findAnswer() {
+	public void findAnswer() throws IOException {
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		boolean isExist = false;
 		for (int i = 0; i < arrCost.length; i++) {
 			if (arrCost[i] == K) {
-				sb.append(i).append('\n');
+				bw.write(i + "\n");
 				isExist = true;
-			} //end if
-		} //end for i
+			} // end if
+		} // end for i
 
 		if (!isExist)
-			sb.append(-1).append('\n');
+			bw.write(-1 + "\n");
+		bw.flush();
 	} // findAnswer
 
 	/* 입력 */
@@ -73,7 +76,7 @@ public class Main {
 		for (int i = 0; i < N + 1; i++) {
 			listEdge[i] = new ArrayList<Edge>();
 			arrCost[i] = MAX;
-		} //end for i
+		} // end for i
 
 		int start = 0, end = 0;
 		for (int i = 0; i < M; i++) {
@@ -82,13 +85,13 @@ public class Main {
 			end = Integer.parseInt(stk.nextToken());
 			listEdge[start].add(new Edge(end, 1));
 		}
-
+		
+		br.close();
 	} // input
 
 	public static void main(String[] args) throws IOException {
 		Main main = new Main();
 		main.input();
 		main.proc();
-		System.out.println(sb);
 	} // main
 }
