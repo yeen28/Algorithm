@@ -24,9 +24,7 @@ public class Main {
 	
 	public static void main(String args[]) throws IOException {
 		Main main = new Main();
-		
 		main.proc(main.input());
-		
 	} // main
 
 	public Human[] input() throws IOException {
