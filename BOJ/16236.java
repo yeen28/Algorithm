@@ -15,7 +15,7 @@ public class Main {
 	static int[][] map = new int[20][20];
 	// 먹은 물고기
 	static ArrayList<Item> fishes = new ArrayList<Item>();
-	static int[] dx = { -1, 0, 1, 0 };
+	static int[] dx = { -1, 0, 1, 0 }; //상좌하우
 	static int[] dy = { 0, -1, 0, 1 };
 	// targetX,Y : 상어 위치
 	// targetSize : 상어 크기
