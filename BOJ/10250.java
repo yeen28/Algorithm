@@ -9,7 +9,7 @@ public class Main {
         Main main = new Main();
         
         main.input();
-	}
+    }
 	
 	public void input() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
