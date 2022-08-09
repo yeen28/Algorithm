@@ -17,13 +17,13 @@ public class Main {
 	
 	private void proc(String str) {
 		int[] alphabet = new int[26];
-		for(int i=0; i<str.length(); i++) {
-			alphabet[(int)str.charAt(i)-65]++;
+		for(int i = 0; i < str.length(); i++) {
+			alphabet[ (int)str.charAt(i) - 65 ]++;
 		} //end for
 		
-		boolean isSame=false;
+		boolean isSame = false;
 		int max = 0;
-		for(int i=1; i<alphabet.length; i++) {
+		for(int i = 1; i < alphabet.length; i++) {
 			if(alphabet[max] < alphabet[i]) {
 				max = i;
 				isSame = false;
@@ -35,6 +35,6 @@ public class Main {
 			return;
 		}
 		
-		System.out.println((char)(max+65));
+		System.out.println( (char)(max + 65) );
 	}
 }
