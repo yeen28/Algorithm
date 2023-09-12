@@ -8,22 +8,13 @@ public class Main {
 	private List<Lecture> lectures = new ArrayList<>();
 	private PriorityQueue<Integer> lecturesEnds = new PriorityQueue<>();
 
-	class Lecture implements Comparable<Lecture> {
+	class Lecture {
 		private int start;
 		private int end;
 
 		public Lecture(int start, int end) {
 			this.start = start;
 			this.end = end;
-		}
-
-		@Override
-		public int compareTo(Lecture lecture) {
-			if (this.start == lecture.start) {
-				return this.end - lecture.end;
-			}
-
-			return this.start - lecture.start;
 		}
 	}
 
@@ -35,7 +26,7 @@ public class Main {
 
 	public void proc() {
 		// lectures의 start를 기준으로 정렬
-		lectures = lectures.stream().sorted().collect(Collectors.toList());
+		lectures = lectures.stream().sorted((l1, l2) -> l1.start - l2.start).collect(Collectors.toList()); 
 
 		// 정렬된 강의 시간 중 첫 번째 원소의 end를 우선순위 큐에 담기
 		lecturesEnds.add(lectures.get(0).end);
