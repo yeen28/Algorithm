@@ -9,7 +9,6 @@ public class Main {
 	private final Queue<Position> queue = new LinkedList<>();
 	private final List<int[][]> inputList = new ArrayList<>();
 	private boolean[][] visited;
-	private final StringBuilder answer = new StringBuilder();
 
 	public static class Position {
 		int x, y;
@@ -38,10 +37,8 @@ public class Main {
 					}
 				}
 			}
-			answer.append(result).append("\n");
+			System.out.println(result);
 		}
-
-		System.out.println(answer);
 	}
 
 	private boolean OOB(int x, int y, int[][] input) {
