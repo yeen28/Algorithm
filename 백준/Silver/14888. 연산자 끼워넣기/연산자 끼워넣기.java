@@ -26,6 +26,7 @@ public class Main {
 		if (idx == numbers.length) {
 			min = Math.min(number, min);
 			max = Math.max(number, max);
+			return;
 		}
 
 		for (int i = 0; i < 4; i++) {
