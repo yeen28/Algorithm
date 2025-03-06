@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
  */
 public class Main {
 	static int N, M, ans;
-	static int[] selected;
+	static int[] selected, used;
 	static StringBuilder sb = new StringBuilder();
 
 	public static void main(String[] args) throws IOException {
@@ -27,6 +27,7 @@ public class Main {
 		M = Integer.parseInt(stk.nextToken());
 
 		selected = new int[M + 1];
+		used = new int[N + 1];
 	}
 
 	// 재귀함수
@@ -42,21 +43,17 @@ public class Main {
 
 		} else {
 			for (int cand = 1; cand <= N; cand++) {
-				boolean isUsed = false;
-				for (int i = 1; i < k; i++) {
-					if (cand == selected[i]) {
-						isUsed = true;
-						break;
-					}
+				if (used[cand] == 1) {
+					continue;
 				}
 
-				if (!isUsed) {
-					selected[k] = cand;
-					rec_func(k + 1); // k+1번 ~ M번을 모두 탐색하는 일을 해야 하는 상황
-					selected[k] = 0;
-				}
+				selected[k] = cand;
+				used[cand] = 1;
+
+				rec_func(k + 1); // k+1번 ~ M번을 모두 탐색하는 일을 해야 하는 상황
+				selected[k] = 0;
+				used[cand] = 0;
 			}
-
 		}
 	}
 }
