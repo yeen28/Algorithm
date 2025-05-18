@@ -23,6 +23,9 @@ public class Main {
         c = Integer.parseInt(stk.nextToken());
     }
     
+	/**
+	 * 분할정복 풀이
+	 */
     public void proc() {
         int x = (int)Math.pow(2, N - 1);
         int y = x;
@@ -30,20 +33,20 @@ public class Main {
         
         while(N-- > 0) { //비교 후 감소
             int tmp = (int)Math.pow(2, N - 1);
-            int skip = (int)Math.pow(4, N);
+            int skip = (int)Math.pow(2, N + 1);
             
-            if(r < y && c < x) { // 1구역
+            if(r < y && c < x) { // 1구역 (좌측상단)
                 x -= tmp;
                 y -= tmp;
-            } else if(r < y && c >= x) { // 2구역
+            } else if(r < y && c >= x) { // 2구역 (우측상단)
                 x += tmp;
                 y -= tmp;
                 answer += skip;
-            } else if(r >= y && c < x) { // 3구역
+            } else if(r >= y && c < x) { // 3구역 (좌측하단)
                 x -= tmp;
                 y += tmp;
                 answer += skip * 2;
-            } else { // 4구역
+            } else { // 4구역 (우측하단)
                 x += tmp;
                 y += tmp;
                 answer += skip * 3;
