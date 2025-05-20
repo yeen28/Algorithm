@@ -89,7 +89,7 @@ public class Main {
      */
     private void bfs(List<Item> fishes, int targetSize) {
         // 상어가 지나갈 수 있는 위치
-        Queue<Item> q = new LinkedList<>();  // todo 왜 linkedlist를 썼을 까?
+        Queue<Item> q = new LinkedList<>();
         visited = new boolean[20 * 20];
 
         q.add(new Item(targetX, targetY, 0));
